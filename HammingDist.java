@@ -14,10 +14,12 @@ public class HammingDist
 	 * ArrayList to hold the IDs of the other stations
 	 */
 	private ArrayList<String> cities;
+	
 	/**
 	 * The name of the file to be read.
 	 */
 	private String filename = "Mesonet.txt";
+	
 	/**
 	 * The number of cities to be read in from the above file.
 	 */
