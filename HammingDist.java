@@ -1,6 +1,7 @@
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -126,7 +127,7 @@ public class HammingDist
 		int dists = 0;
 		
 		//steps through each character and determines if they are the same for both Strings
-		for(int index = 0; index < original.length(); ++index)
+		for(int index = 0; index < original.length() && index < compare.length(); ++index)
 		{
 			//if the characters are not the same, increment the  temporary hamming distance variable
 			if(original.charAt(index) != compare.charAt(index))
@@ -136,6 +137,25 @@ public class HammingDist
 		}
 		
 		return dists;
+	}
+	
+	/**
+	 * This method uses the given Station ID and creates an ArrayList containing the other cities which are the given hamming distance away
+	 * 
+	 * @return the ArrayList of ID's of the given hamming distance
+	 */
+	public ArrayList<String> findEqualHammingDist(String orig, int dist) 
+	{
+		ArrayList<String> distAway = new ArrayList<String>();
+		
+		for(String comp : cities)
+		{
+			if(findHammingDist(orig, comp) == dist)
+			{
+				distAway.add(comp);
+			}
+		}
+		return distAway;
 	}
 	
 	/**
