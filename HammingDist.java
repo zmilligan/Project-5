@@ -144,7 +144,7 @@ public class HammingDist
 	 * 
 	 * @return the ArrayList of ID's of the given hamming distance
 	 */
-	public ArrayList<String> findEqualHammingDist(String orig, int dist) 
+	public ArrayList<String> findGivenHammingDist(String orig, int dist) 
 	{
 		ArrayList<String> distAway = new ArrayList<String>();
 		
