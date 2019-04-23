@@ -73,10 +73,10 @@ public class HammingDist
 	 * an int array
 	 * 
 	 * @param city String the name of the city to compare
-	 * @return int[] an array of hamming distances. Index 0 holds the number of those of hamming dist 1, index 1 holds the number
-	 * of cities of hamming distance 2, and indexes 2 and 3 for distances 3 and 4 respectively. 
+	 * @return int[] an array of hamming distances. Index 0 holds the number of those of hamming dist 0, index 1 holds the number of
+	 * those of hamming dist 1, and indexes 2, 3 and 4 for distances 2, 3 and 4 respectively. 
 	 */
-	public int[] getHammingDist(String city)
+	public int[] compareHammingDist(String city)
 	{
 		//temporary hamming distance variables
 		int[] distances = new int[5];
