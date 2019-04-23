@@ -69,6 +69,76 @@ public class HammingDist
 	}
 	
 	/**
+	 * This method finds the hamming distances between the given city and all other cities in the file. It saves those distances in
+	 * an int array
+	 * 
+	 * @param city String the name of the city to compare
+	 * @return int[] an array of hamming distances. Index 0 holds the number of those of hamming dist 1, index 1 holds the number
+	 * of cities of hamming distance 2, and indexes 2 and 3 for distances 3 and 4 respectively. 
+	 */
+	public int[] getHammingDist(String city)
+	{
+		//temporary hamming distance variables
+		int[] distances = new int[5];
+		int dist0 = 0;
+		int dist1 = 0;
+		int dist2 = 0;
+		int dist3 = 0;
+		int dist4 = 0;
+		
+		//steps through each string in the cities array
+		for(String comp : cities)
+		{
+			int tempDist = findHammingDist(city, comp);
+			// update the correct variable based on the hamming distance
+			if(tempDist == 0)
+				++dist0;
+			if(tempDist == 1)
+				++dist1;
+			if(tempDist == 2)
+				++dist2;
+			if(tempDist == 3)
+				++dist3;
+			if(tempDist == 4)
+				++dist4;
+		}
+		
+		//put the distances into the array at the proper index
+		distances[0] = dist0;
+		distances[1] = dist1;
+		distances[2] = dist2;
+		distances[3] = dist3;
+		distances[4] = dist4;
+		
+		return distances;
+	}
+	
+	/**
+	 * This method determines the hamming distance (1, 2, 3, 4) between the two given cities
+	 * 
+	 * @param original String the first city
+	 * @param compare String the second city to be compared to the first
+	 * @return int number 1-4 representing the hamming distance between the two given cities
+	 */
+	public int findHammingDist(String original, String compare)
+	{
+		//temporary hamming distance variable
+		int dists = 0;
+		
+		//steps through each character and determines if they are the same for both Strings
+		for(int index = 0; index < original.length(); ++index)
+		{
+			//if the characters are not the same, increment the  temporary hamming distance variable
+			if(original.charAt(index) != compare.charAt(index))
+			{
+				++dists;
+			}
+		}
+		
+		return dists;
+	}
+	
+	/**
 	 * Accessor method for the cities array containing all the Station IDs
 	 * @return cities arraylist
 	 */
