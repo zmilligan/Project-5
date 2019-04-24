@@ -28,11 +28,6 @@ public class HammingDist
 	private final int NUM_CITIES = 120;
 	
 	/**
-	 * The location of NRMN in the cities array
-	 */
-	private int location;
-	
-	/**
 	 * Constructor for the MesoEqual object. It initializes StID and reads an ArrayList in to initialize cities.
 	 * @param StID String the Station ID
 	 */
@@ -70,8 +65,6 @@ public class HammingDist
 		   	cities.add(scnr.next());
 		   	scnr.nextLine();
 		}
-		     
-		location = cities.indexOf("NRMN");
 		
 		// close reader
 		scnr.close();
@@ -187,16 +180,7 @@ public class HammingDist
 		{
 			cities.add(official);
 			Collections.sort(cities);
-			location = cities.indexOf("NRMN");
 		}
 	}
 	
-	/**
-	 * returns the location of NRMN in the cities array
-	 * @return the index of NRMN
-	 */
-	public int getNRMN()
-	{
-		return location;
-	}
 }
