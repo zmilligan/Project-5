@@ -1,6 +1,7 @@
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -165,5 +166,16 @@ public class HammingDist
 	public ArrayList<String> getCities()
 	{
 		return cities;
+	}
+	
+	public void addCity(String id)
+	{
+		// this ensures that the id is uppercase and the appropriate length
+		String official = (id.toUpperCase() + "    ").substring(0, 4);
+		if(!cities.contains(official))
+		{
+			cities.add(official);
+			Collections.sort(cities);
+		}
 	}
 }
