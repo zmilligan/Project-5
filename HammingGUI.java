@@ -6,7 +6,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSlider;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class HammingGUI extends JFrame
@@ -22,10 +24,12 @@ public class HammingGUI extends JFrame
 	private JTextField dist3;
 	private JTextField dist4;
 	private JButton show;
+	private JTextArea stations;
+	private JScrollPane sView;
 	
 	public HammingGUI()
 	{
-		this.setSize(600, 700);
+		this.setSize(600, 740);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridLayout gl = new GridLayout(0, 2);
 		GridBagLayout gbl = new GridBagLayout();
@@ -53,6 +57,7 @@ public class HammingGUI extends JFrame
 
 	private void addComponentsPanel1(GridBagConstraints gbc) 
 	{
+		gbc.weighty = 1;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.gridx = 0; gbc.gridy = 0;
         panel1.add(sLabel, gbc);
@@ -61,18 +66,20 @@ public class HammingGUI extends JFrame
         panel1.add(sText, gbc);
  
         gbc.gridx = 0; gbc.gridy = 2;
-        //gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridwidth = 2; gbc.gridheight = 2;
+        gbc.gridwidth = 2;
         panel1.add(slider, gbc);
         
-        gbc.fill = GridBagConstraints.VERTICAL;
-        
-        gbc.gridx = 0; gbc.gridy = 6;
+        gbc.gridy = 4;
         gbc.gridwidth = 1;
-        gbc.gridheight = 1;
         panel1.add(show, gbc);
         
-        gbc.gridx = 0; gbc.gridy = 7;
+        gbc.gridy = 5;
+        gbc.gridwidth = 2;
+        gbc.ipady = 220;
+        panel1.add(sView, gbc);
+        
+        gbc.gridx = 1; gbc.gridy = 6;
+        gbc.ipady = 0;
         panel1.add(dist0, gbc);
 		
 	}
@@ -82,6 +89,9 @@ public class HammingGUI extends JFrame
 		sText = new JTextField();
 		sText.setEditable(false);
 		sText.setText(" " + slider.getValue());
+		
+		stations = new JTextArea();
+		sView = new JScrollPane(stations);
 		
 		dist0 = new JTextField();
 		dist0.setEditable(false);
