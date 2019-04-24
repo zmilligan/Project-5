@@ -3,6 +3,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -13,6 +14,7 @@ import javax.swing.JTextField;
 
 public class HammingGUI extends JFrame
 {
+	private HammingDist base = new HammingDist();
 	private JPanel panel1 = new JPanel();
 	private JPanel panel2 = new JPanel();
 	private JSlider slider;
@@ -26,6 +28,8 @@ public class HammingGUI extends JFrame
 	private JButton show;
 	private JTextArea stations;
 	private JScrollPane sView;
+	private JLabel cLable;
+	private JComboBox city;
 	
 	public HammingGUI()
 	{
@@ -41,6 +45,7 @@ public class HammingGUI extends JFrame
 		setLabels();
 		setTextFields();
 		setButtons();
+		setDropDownBox();
 		
 		addComponentsPanel1(gbc);
 		
@@ -50,6 +55,11 @@ public class HammingGUI extends JFrame
 		this.setVisible(true);
 	}
 	
+	private void setDropDownBox()
+	{
+		city = new JComboBox(base.getCities().toArray());
+	}
+
 	private void setButtons()
 	{
 		show = new JButton("Show Station");
@@ -62,7 +72,7 @@ public class HammingGUI extends JFrame
 		gbc.gridx = 0; gbc.gridy = 0;
         panel1.add(sLabel, gbc);
  
-        gbc.gridx = 1; gbc.gridy = 0;
+        gbc.gridx = 1;
         panel1.add(sText, gbc);
  
         gbc.gridx = 0; gbc.gridy = 2;
@@ -78,9 +88,13 @@ public class HammingGUI extends JFrame
         gbc.ipady = 220;
         panel1.add(sView, gbc);
         
-        gbc.gridx = 1; gbc.gridy = 6;
+        gbc.gridy = 6;
         gbc.ipady = 0;
-        panel1.add(dist0, gbc);
+        panel1.add(cLable, gbc);
+        
+        gbc.gridx = 1;
+        city.setSelectedItem("NRMN");
+        panel1.add(city, gbc);
 		
 	}
 
@@ -112,6 +126,7 @@ public class HammingGUI extends JFrame
 	private void setLabels() 
 	{
 		sLabel = new JLabel("Enter Hamming Dist: ");
+		cLable = new JLabel("Compare with:\t");
 	}
 
 	private void setSlider()
