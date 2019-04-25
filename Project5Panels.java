@@ -59,10 +59,11 @@ public class Project5Panels
 		panel2 = new JPanel();
 		
 		GridBagLayout gbl1 = new GridBagLayout();
-		GridBagConstraints gbc = new GridBagConstraints();
+		GridBagConstraints gbc1 = new GridBagConstraints();
 		panel1.setLayout(gbl1);
-		
+
 		GridBagLayout gbl2 = new GridBagLayout();
+		GridBagConstraints gbc2 = new GridBagConstraints();
 		panel2.setLayout(gbl2);
 		
 		setSlider();
@@ -71,31 +72,33 @@ public class Project5Panels
 		setButtons();
 		setDropDownBox();
 		
-		addComponentsPanel1(gbc);
-		addComponentsPanel2(gbc);
+		addComponentsPanel1(gbc1);
+		addComponentsPanel2(gbc2);
 	}
 	
 	private void addComponentsPanel2(GridBagConstraints gbc) 
-	{
-		gbc.weighty = 0;
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-		gbc.gridx = 0; gbc.gridy = 0;
+	{		
+		gbc.weightx = 0;
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.gridx = 1; gbc.gridy = 0;
 		gbc.gridwidth = 2;
-		panel2.add(title, gbc);
-		
-		gbc.gridwidth = 1;
-		gbc.gridy = 1;
-		panel2.add(cLabel, gbc);
-		gbc.gridy = 2;
-		panel2.add(fLabel, gbc);
+        panel2.add(title, gbc);
+ 
+        gbc.gridwidth = 1;
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        panel2.add(ciLabel, gbc);
+        gbc.gridy = 2;
+        gbc.gridwidth = 2;
+        panel2.add(fLabel, gbc);
 		gbc.gridy = 3;
 		panel2.add(aLabel, gbc);
 		gbc.gridy = 4;
 		panel2.add(lLabel, gbc);
 		gbc.gridy = 5;
 		panel2.add(calculate, gbc);
-		
-		gbc.gridx = 1;
+        
+		gbc.gridx = 2;
 		gbc.gridy = 1;
 		panel2.add(ceiling, gbc);
 		gbc.gridy = 2;
@@ -267,11 +270,11 @@ public class Project5Panels
 		dLabel3 = new JLabel("Distance 3");
 		dLabel4 = new JLabel("Distance 4");
 		
-		title = new JLabel("ASCII average:");
-		ciLabel = new JLabel("ceiling value:"); 
-		fLabel = new JLabel("floor value:");
-		aLabel = new JLabel("rounded value:");
-		lLabel = new JLabel("character representation: ");
+		title = new JLabel("       ASCII average");
+		ciLabel = new JLabel("ceiling:"); 
+		fLabel = new JLabel("floor:");
+		aLabel = new JLabel("rounded:");
+		lLabel = new JLabel("character: ");
 	}
 
 	private void setSlider()
