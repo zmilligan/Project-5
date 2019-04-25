@@ -24,7 +24,17 @@ public class CreativePanel extends ProjectPanel
 
 	private void setTextFields()
 	{
+		ceiling = new JTextField();
+		ceiling.setEditable(false);
 		
+		floor = new JTextField();
+		floor.setEditable(false);
+		
+		average = new JTextField();
+		average.setEditable(false);
+		
+		letter = new JTextField();
+		letter.setEditable(false);
 	}
 
 	private void setLabels() 
