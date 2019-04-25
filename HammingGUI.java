@@ -73,6 +73,15 @@ public class HammingGUI extends JFrame
 		show = new JButton("Show Station");
 		calc = new JButton("Calculate HD");
 		add = new JButton("Add Station");
+		
+		show.addActionListener((e) -> {
+    		String list = "";
+    		for(String id : base.findGivenHammingDist(city.getSelectedItem().toString(), slider.getValue()))
+    		{
+    			list += id + "\n";
+    		}
+    		stations.setText(list);
+    	});
 	}
 
 	private void addComponentsPanel1(GridBagConstraints gbc) 
