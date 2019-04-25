@@ -151,7 +151,11 @@ public class Project5Panels
 		calculate = new JButton("Calulate ASCII");
 		
 		calculate.addActionListener((e) -> {
-    		int[] avg = base.calAverage("");
+    		int[] avg = base.calAverage(city.getSelectedItem().toString());
+    		ceiling.setText(" " + avg[0]);
+    		floor.setText(" " + avg[1]);
+    		average.setText(" " + avg[2]);
+    		letter.setText(" " + base.letterAverage(city.getSelectedItem().toString()));
     		
     	});
 	}
