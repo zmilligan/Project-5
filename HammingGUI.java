@@ -28,8 +28,16 @@ public class HammingGUI extends JFrame
 	private JButton show;
 	private JTextArea stations;
 	private JScrollPane sView;
-	private JLabel cLable;
+	private JLabel cLabel;
 	private JComboBox city;
+	private JButton calc;
+	private JLabel dLabel0;
+	private JLabel dLabel1;
+	private JLabel dLabel2;
+	private JLabel dLabel3;
+	private JLabel dLabel4;
+	private JButton add;
+	private JTextField newCity;
 	
 	public HammingGUI()
 	{
@@ -63,6 +71,8 @@ public class HammingGUI extends JFrame
 	private void setButtons()
 	{
 		show = new JButton("Show Station");
+		calc = new JButton("Calculate HD");
+		add = new JButton("Add Station");
 	}
 
 	private void addComponentsPanel1(GridBagConstraints gbc) 
@@ -90,12 +100,45 @@ public class HammingGUI extends JFrame
         
         gbc.gridy = 6;
         gbc.ipady = 0;
-        panel1.add(cLable, gbc);
+        panel1.add(cLabel, gbc);
         
         gbc.gridx = 1;
         city.setSelectedItem("NRMN");
         panel1.add(city, gbc);
-		
+        
+        gbc.gridx = 0; gbc.gridy = 7;
+        gbc.gridwidth = 1;
+        panel1.add(calc, gbc);	
+        
+        gbc.gridx = 0;
+        gbc.gridy = 8;
+        panel1.add(dLabel0, gbc);
+        gbc.gridy = 9;
+        panel1.add(dLabel1, gbc);
+        gbc.gridy = 10;
+        panel1.add(dLabel2, gbc);
+        gbc.gridy = 11;
+        panel1.add(dLabel3, gbc);
+        gbc.gridy = 12;
+        panel1.add(dLabel4, gbc);
+        
+        gbc.gridy = 13;
+        panel1.add(add, gbc);
+        
+        gbc.gridx = 1;
+        gbc.gridy = 8;
+        panel1.add(dist0, gbc);
+        gbc.gridy = 9;
+        panel1.add(dist1, gbc);
+        gbc.gridy = 10;
+        panel1.add(dist2, gbc);
+        gbc.gridy = 11;
+        panel1.add(dist3, gbc);
+        gbc.gridy = 12;
+        panel1.add(dist4, gbc);
+        
+        gbc.gridy = 13;
+        panel1.add(newCity, gbc);
 	}
 
 	private void setTextFields() 
@@ -121,12 +164,19 @@ public class HammingGUI extends JFrame
 		
 		dist4 = new JTextField();
 		dist4.setEditable(false);
+		
+		newCity = new JTextField();
 	}
 
 	private void setLabels() 
 	{
 		sLabel = new JLabel("Enter Hamming Dist: ");
-		cLable = new JLabel("Compare with:\t");
+		cLabel = new JLabel("Compare with:\t");
+		dLabel0 = new JLabel("Distance 0");
+		dLabel1 = new JLabel("Distance 1");
+		dLabel2 = new JLabel("Distance 2");
+		dLabel3 = new JLabel("Distance 3");
+		dLabel4 = new JLabel("Distance 4");
 	}
 
 	private void setSlider()
@@ -137,7 +187,12 @@ public class HammingGUI extends JFrame
 		slider.setPaintLabels(true);
 		slider.setSnapToTicks(true);
 		
+		slider.addChangeListener((e) -> {
+    		sText.setText(" " + slider.getValue());
+    	});
 	}
+	
+	
 
 	public static void main(String[] args)
 	{
