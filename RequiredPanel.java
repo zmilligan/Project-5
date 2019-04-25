@@ -14,7 +14,6 @@ import javax.swing.JTextField;
 
 public class RequiredPanel extends ProjectPanel
 {
-	private HammingDist base = new HammingDist();
 	private JSlider slider;
 	private JLabel sLabel;
 	private JTextField sText;

@@ -53,7 +53,7 @@ public class CreativePanel extends ProjectPanel
 		calculate = new JButton("Calulate ASCII");
 		
 		calculate.addActionListener((e) -> {
-    		
+    		int[] avg = base.calAverage("");
     	});
 	}
 	
