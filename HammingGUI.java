@@ -82,6 +82,24 @@ public class HammingGUI extends JFrame
     		}
     		stations.setText(list);
     	});
+		
+		calc.addActionListener((e) -> {
+    		int[] val = base.compareHammingDist(city.getSelectedItem().toString());
+    		dist0.setText(" " + val[0]);
+    		dist1.setText(" " + val[1]);
+    		dist2.setText(" " + val[2]);
+    		dist3.setText(" " + val[3]);
+    		dist4.setText(" " + val[4]);
+    	});
+		
+		add.addActionListener((e) -> {
+    		base.addCity(newCity.getText());
+    		city.removeAll();
+    		for(Object id : base.getCities().toArray())
+    		{
+    			city.addItem(id);
+    		}
+    	});
 	}
 
 	private void addComponentsPanel1(GridBagConstraints gbc) 
