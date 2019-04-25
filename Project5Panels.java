@@ -15,11 +15,16 @@ import javax.swing.JTextField;
 
 public class Project5Panels
 {
-
+	/**
+	 * Variables used throughout the class
+	 */
 	private JPanel panel1;
 	private JPanel panel2;
 	protected HammingDist base = new HammingDist();
 	
+	/** 
+	 * Components specific for panel1
+	 */
 	private JSlider slider;
 	private JLabel sLabel;
 	private JTextField sText;
@@ -42,6 +47,9 @@ public class Project5Panels
 	private JButton add;
 	private JTextField newCity;
 	
+	/**
+	 * Components specific for panel2
+	 */
 	private JButton calculate;
 	private JLabel title; 
 	private JLabel ciLabel;
@@ -53,6 +61,9 @@ public class Project5Panels
 	private JTextField average;
 	private JTextField letter;
 	
+	/**
+	 * Constructor method, creates the frames and adds layout managers, creates the components, and adds them to the frames.
+	 */
 	public Project5Panels()
 	{
 		panel1 = new JPanel();
@@ -76,90 +87,10 @@ public class Project5Panels
 		addComponentsPanel2(gbc2);
 	}
 	
-	private void addComponentsPanel2(GridBagConstraints gbc) 
-	{		
-		gbc.weightx = 0;
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.gridx = 1; gbc.gridy = 0;
-		gbc.gridwidth = 2;
-        panel2.add(title, gbc);
- 
-        gbc.gridwidth = 1;
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        panel2.add(ciLabel, gbc);
-        gbc.gridy = 2;
-        gbc.gridwidth = 2;
-        panel2.add(fLabel, gbc);
-		gbc.gridy = 3;
-		panel2.add(aLabel, gbc);
-		gbc.gridy = 4;
-		panel2.add(lLabel, gbc);
-		gbc.gridy = 5;
-		panel2.add(calculate, gbc);
-        
-		gbc.gridx = 2;
-		gbc.gridy = 1;
-		panel2.add(ceiling, gbc);
-		gbc.gridy = 2;
-		panel2.add(floor, gbc);
-		gbc.gridy = 3;
-		panel2.add(average, gbc);
-		gbc.gridy = 4;
-		panel2.add(letter, gbc);
-	}
-
-	private void setDropDownBox()
-	{
-		city = new JComboBox(base.getCities().toArray());
-        city.setSelectedItem("NRMN");
-	}
-
-	private void setButtons()
-	{
-		show = new JButton("Show Station");
-		calc = new JButton("Calculate HD");
-		add = new JButton("Add Station");
-		
-		show.addActionListener((e) -> {
-    		String list = "";
-    		for(String id : base.findGivenHammingDist(city.getSelectedItem().toString(), slider.getValue()))
-    		{
-    			list += id + "\n";
-    		}
-    		stations.setText(list);
-    	});
-		
-		calc.addActionListener((e) -> {
-    		int[] val = base.compareHammingDist(city.getSelectedItem().toString());
-    		dist0.setText(" " + val[0]);
-    		dist1.setText(" " + val[1]);
-    		dist2.setText(" " + val[2]);
-    		dist3.setText(" " + val[3]);
-    		dist4.setText(" " + val[4]);
-    	});
-		
-		add.addActionListener((e) -> {
-    		base.addCity(newCity.getText());
-    		city.removeAll();
-    		for(Object id : base.getCities().toArray())
-    		{
-    			city.addItem(id);
-    		}
-    	});
-		
-		calculate = new JButton("Calulate ASCII");
-		
-		calculate.addActionListener((e) -> {
-    		int[] avg = base.calAverage(city.getSelectedItem().toString());
-    		ceiling.setText(" " + avg[0]);
-    		floor.setText(" " + avg[1]);
-    		average.setText(" " + avg[2]);
-    		letter.setText(" " + base.letterAverage(city.getSelectedItem().toString()));
-    		
-    	});
-	}
-
+	/**
+	 * Adds the panel1 components to panel1
+	 * @param gbc GridBagConstraints to ensure proper layout
+	 */
 	private void addComponentsPanel1(GridBagConstraints gbc) 
 	{
 		gbc.weighty = 1;
@@ -224,7 +155,47 @@ public class Project5Panels
         gbc.gridy = 13;
         panel1.add(newCity, gbc);
 	}
+	
+	/**
+	 * Adds thte panel2 components to panel2
+	 * @param gbc GridBagConstraints to ensure proper layout
+	 */
+	private void addComponentsPanel2(GridBagConstraints gbc) 
+	{		
+		gbc.weightx = 0;
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.gridx = 1; gbc.gridy = 0;
+		gbc.gridwidth = 2;
+        panel2.add(title, gbc);
+ 
+        gbc.gridwidth = 1;
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        panel2.add(ciLabel, gbc);
+        gbc.gridy = 2;
+        gbc.gridwidth = 2;
+        panel2.add(fLabel, gbc);
+		gbc.gridy = 3;
+		panel2.add(aLabel, gbc);
+		gbc.gridy = 4;
+		panel2.add(lLabel, gbc);
+		gbc.gridy = 5;
+		panel2.add(calculate, gbc);
+        
+		gbc.gridx = 2;
+		gbc.gridy = 1;
+		panel2.add(ceiling, gbc);
+		gbc.gridy = 2;
+		panel2.add(floor, gbc);
+		gbc.gridy = 3;
+		panel2.add(average, gbc);
+		gbc.gridy = 4;
+		panel2.add(letter, gbc);
+	}
 
+	/**
+	 * Initializes and configures the text fields
+	 */
 	private void setTextFields() 
 	{
 		sText = new JTextField();
@@ -264,6 +235,9 @@ public class Project5Panels
 		letter.setEditable(false);
 	}
 
+	/**
+	 * Initializes and configures the labels
+	 */
 	private void setLabels() 
 	{
 		sLabel = new JLabel("Enter Hamming Dist: ");
@@ -281,6 +255,9 @@ public class Project5Panels
 		lLabel = new JLabel("character: ");
 	}
 
+	/**
+	 * Initializes, configures, and adds changeListener to the slider
+	 */
 	private void setSlider()
 	{
 		slider = new JSlider(0, 1, 4, 1);
@@ -294,11 +271,76 @@ public class Project5Panels
     	});
 	}
 
+	/**
+	 * Initializes, configures, and adds ActionListeners to the buttons
+	 */
+	private void setButtons()
+	{
+		show = new JButton("Show Station");
+		calc = new JButton("Calculate HD");
+		add = new JButton("Add Station");
+		
+		show.addActionListener((e) -> {
+    		String list = "";
+    		for(String id : base.findGivenHammingDist(city.getSelectedItem().toString(), slider.getValue()))
+    		{
+    			list += id + "\n";
+    		}
+    		stations.setText(list);
+    	});
+		
+		calc.addActionListener((e) -> {
+    		int[] val = base.compareHammingDist(city.getSelectedItem().toString());
+    		dist0.setText(" " + val[0]);
+    		dist1.setText(" " + val[1]);
+    		dist2.setText(" " + val[2]);
+    		dist3.setText(" " + val[3]);
+    		dist4.setText(" " + val[4]);
+    	});
+		
+		add.addActionListener((e) -> {
+    		base.addCity(newCity.getText());
+    		city.removeAll();
+    		for(Object id : base.getCities().toArray())
+    		{
+    			city.addItem(id);
+    		}
+    	});
+		
+		calculate = new JButton("Calulate ASCII");
+		
+		calculate.addActionListener((e) -> {
+    		int[] avg = base.calAverage(city.getSelectedItem().toString());
+    		ceiling.setText(" " + avg[0]);
+    		floor.setText(" " + avg[1]);
+    		average.setText(" " + avg[2]);
+    		letter.setText(" " + base.letterAverage(city.getSelectedItem().toString()));
+    		
+    	});
+	}
+	
+	/**
+	 * Initializes and configures the drop-down box
+	 */
+	private void setDropDownBox()
+	{
+		city = new JComboBox(base.getCities().toArray());
+        city.setSelectedItem("NRMN");
+	}
+
+	/**
+	 * Accessor method for the first panel
+	 * @return panel1
+	 */
 	public JPanel getPanel1() 
 	{
 		return panel1;
 	}
 
+	/**
+	 * Accessor method for the second panel
+	 * @return panel2
+	 */
 	public JPanel getPanel2() 
 	{
 		return panel2;

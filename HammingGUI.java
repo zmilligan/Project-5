@@ -4,8 +4,14 @@ import javax.swing.JFrame;
 
 public class HammingGUI extends JFrame
 {
+	/**
+	 * object to get the desired panels created in the Project5Panels class.
+	 */
 	private Project5Panels pPanels = new Project5Panels();
 	
+	/**
+	 * Constructor for the class, creates and configures the frame and adds the two panels
+	 */
 	public HammingGUI()
 	{
 		this.setSize(600, 740);
