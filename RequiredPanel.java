@@ -40,7 +40,6 @@ public class RequiredPanel
 	
 	public RequiredPanel()
 	{
-		
 		GridBagLayout gbl = new GridBagLayout();
 		GridBagConstraints gbc = new GridBagConstraints();
 		
@@ -52,10 +51,7 @@ public class RequiredPanel
 		setButtons();
 		setDropDownBox();
 		
-		addComponentsPanel1(gbc);
-		
-		
-		
+		addComponentsPanel(gbc);
 	}
 	
 	public JPanel getPanel()
@@ -102,7 +98,7 @@ public class RequiredPanel
     	});
 	}
 
-	private void addComponentsPanel1(GridBagConstraints gbc) 
+	private void addComponentsPanel(GridBagConstraints gbc) 
 	{
 		gbc.weighty = 1;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -218,5 +214,4 @@ public class RequiredPanel
     		sText.setText(" " + slider.getValue());
     	});
 	}
-	
 }
