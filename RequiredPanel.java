@@ -12,10 +12,9 @@ import javax.swing.JSlider;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class RequiredPanel 
+public class RequiredPanel extends ProjectPanel
 {
 	private HammingDist base = new HammingDist();
-	private JPanel panel = new JPanel();
 	private JSlider slider;
 	private JLabel sLabel;
 	private JTextField sText;
@@ -52,11 +51,6 @@ public class RequiredPanel
 		setDropDownBox();
 		
 		addComponentsPanel(gbc);
-	}
-	
-	public JPanel getPanel()
-	{
-		return panel;
 	}
 	
 	private void setDropDownBox()
