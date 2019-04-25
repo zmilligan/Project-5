@@ -1,16 +1,12 @@
 import javax.swing.JPanel;
 
-public class CreativePanel
+public class CreativePanel extends ProjectPanel
 {
-	private JPanel panel = new JPanel();
 	
 	public CreativePanel()
 	{
 		
 	}
 	
-	public JPanel getPanel()
-	{
-		return panel;
-	}
+	
 }
