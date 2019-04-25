@@ -183,4 +183,53 @@ public class HammingDist
 		}
 	}
 	
+	/**
+	 * retrieves the average of the station's ID and inputs them into an array in the following order:
+	 * [0] The ceiling of the average
+	 * [1] The floor of the average
+	 * [2] The average (ceiling if decimal >= 0.5, floor if  < 0.5)
+	 * @return array containing average values
+	 */
+	public int[] calAverage(String id)
+	{
+		double average = getAverage(id);
+		
+		int[] ave = new int[3];
+		ave[0] = (int)Math.ceil(average);
+		ave[1] = (int)Math.floor(average);
+		ave[2] = (int)Math.round(average);
+		
+		return ave;
+	}
+	
+	/**
+	 * determines the letter represented by the average of the station ID
+	 * @return the character representing the average
+	 */
+	public char letterAverage(String id)
+	{
+		return (char)calAverage(id)[2];
+	}
+	
+	/**
+	 * This method determines the average Ascii value of the four characters making up the MesoStation ID
+	 * @return the average Ascii value
+	 */
+	private double getAverage(String id)
+	{
+		int total = 0;
+		double num = id.length();
+		
+		for(int i = 0; i < num; ++i)
+		{
+			char c = id.charAt(i);
+
+			//Note: Java automatically translates the characters into their int Ascii values
+			total += c;
+		}
+		
+		double average = total / num;
+		
+		return average;
+	}
 }
