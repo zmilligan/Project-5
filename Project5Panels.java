@@ -77,11 +77,33 @@ public class Project5Panels
 	
 	private void addComponentsPanel2(GridBagConstraints gbc) 
 	{
-		gbc.weighty = 1;
+		gbc.weighty = 0;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.gridx = 0; gbc.gridy = 0;
 		gbc.gridwidth = 2;
-		panel2.add(title);
+		panel2.add(title, gbc);
+		
+		gbc.gridwidth = 1;
+		gbc.gridy = 1;
+		panel2.add(cLabel, gbc);
+		gbc.gridy = 2;
+		panel2.add(fLabel, gbc);
+		gbc.gridy = 3;
+		panel2.add(aLabel, gbc);
+		gbc.gridy = 4;
+		panel2.add(lLabel, gbc);
+		gbc.gridy = 5;
+		panel2.add(calculate, gbc);
+		
+		gbc.gridx = 1;
+		gbc.gridy = 1;
+		panel2.add(ceiling, gbc);
+		gbc.gridy = 2;
+		panel2.add(floor, gbc);
+		gbc.gridy = 3;
+		panel2.add(average, gbc);
+		gbc.gridy = 4;
+		panel2.add(letter, gbc);
 	}
 
 	private void setDropDownBox()
@@ -127,6 +149,7 @@ public class Project5Panels
 		
 		calculate.addActionListener((e) -> {
     		int[] avg = base.calAverage("");
+    		
     	});
 	}
 
