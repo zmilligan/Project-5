@@ -12,7 +12,7 @@ import javax.swing.JSlider;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class HammingGUI extends JFrame
+public class RequiredPanel extends JFrame
 {
 	private HammingDist base = new HammingDist();
 	private JPanel panel1 = new JPanel();
@@ -39,7 +39,7 @@ public class HammingGUI extends JFrame
 	private JButton add;
 	private JTextField newCity;
 	
-	public HammingGUI()
+	public RequiredPanel()
 	{
 		this.setSize(600, 740);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,6 +61,11 @@ public class HammingGUI extends JFrame
 		this.add(panel1);
 		this.add(panel2);
 		this.setVisible(true);
+	}
+	
+	public JPanel getPanel()
+	{
+		return panel1;
 	}
 	
 	private void setDropDownBox()
@@ -223,6 +228,6 @@ public class HammingGUI extends JFrame
 
 	public static void main(String[] args)
 	{
-		new HammingGUI();
+		new RequiredPanel();
 	}
 }
