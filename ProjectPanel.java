@@ -2,7 +2,7 @@ import javax.swing.JPanel;
 
 public abstract class ProjectPanel
 {
-	private JPanel panel = new JPanel();
+	protected JPanel panel = new JPanel();
 	
 	public JPanel getPanel()
 	{
