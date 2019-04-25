@@ -12,11 +12,10 @@ import javax.swing.JSlider;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class RequiredPanel extends JFrame
+public class RequiredPanel
 {
 	private HammingDist base = new HammingDist();
-	private JPanel panel1 = new JPanel();
-	private JPanel panel2 = new JPanel();
+	private JPanel panel = new JPanel();
 	private JSlider slider;
 	private JLabel sLabel;
 	private JTextField sText;
@@ -41,13 +40,11 @@ public class RequiredPanel extends JFrame
 	
 	public RequiredPanel()
 	{
-		this.setSize(600, 740);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		GridLayout gl = new GridLayout(0, 2);
+		
 		GridBagLayout gbl = new GridBagLayout();
 		GridBagConstraints gbc = new GridBagConstraints();
-		this.setLayout(gl);
-		panel1.setLayout(gbl);
+		
+		panel.setLayout(gbl);
 		
 		setSlider();
 		setLabels();
@@ -58,14 +55,12 @@ public class RequiredPanel extends JFrame
 		addComponentsPanel1(gbc);
 		
 		
-		this.add(panel1);
-		this.add(panel2);
-		this.setVisible(true);
+		
 	}
 	
 	public JPanel getPanel()
 	{
-		return panel1;
+		return panel;
 	}
 	
 	private void setDropDownBox()
@@ -112,65 +107,65 @@ public class RequiredPanel extends JFrame
 		gbc.weighty = 1;
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.gridx = 0; gbc.gridy = 0;
-        panel1.add(sLabel, gbc);
+        panel.add(sLabel, gbc);
  
         gbc.gridx = 1;
-        panel1.add(sText, gbc);
+        panel.add(sText, gbc);
  
         gbc.gridx = 0; gbc.gridy = 2;
         gbc.gridwidth = 2;
-        panel1.add(slider, gbc);
+        panel.add(slider, gbc);
         
         gbc.gridy = 4;
         gbc.gridwidth = 1;
-        panel1.add(show, gbc);
+        panel.add(show, gbc);
         
         gbc.gridy = 5;
         gbc.gridwidth = 2;
         gbc.ipady = 220;
-        panel1.add(sView, gbc);
+        panel.add(sView, gbc);
         
         gbc.gridy = 6;
         gbc.ipady = 0;
-        panel1.add(cLabel, gbc);
+        panel.add(cLabel, gbc);
         
         gbc.gridx = 1;
         city.setSelectedItem("NRMN");
-        panel1.add(city, gbc);
+        panel.add(city, gbc);
         
         gbc.gridx = 0; gbc.gridy = 7;
         gbc.gridwidth = 1;
-        panel1.add(calc, gbc);	
+        panel.add(calc, gbc);	
         
         gbc.gridx = 0;
         gbc.gridy = 8;
-        panel1.add(dLabel0, gbc);
+        panel.add(dLabel0, gbc);
         gbc.gridy = 9;
-        panel1.add(dLabel1, gbc);
+        panel.add(dLabel1, gbc);
         gbc.gridy = 10;
-        panel1.add(dLabel2, gbc);
+        panel.add(dLabel2, gbc);
         gbc.gridy = 11;
-        panel1.add(dLabel3, gbc);
+        panel.add(dLabel3, gbc);
         gbc.gridy = 12;
-        panel1.add(dLabel4, gbc);
+        panel.add(dLabel4, gbc);
         
         gbc.gridy = 13;
-        panel1.add(add, gbc);
+        panel.add(add, gbc);
         
         gbc.gridx = 1;
         gbc.gridy = 8;
-        panel1.add(dist0, gbc);
+        panel.add(dist0, gbc);
         gbc.gridy = 9;
-        panel1.add(dist1, gbc);
+        panel.add(dist1, gbc);
         gbc.gridy = 10;
-        panel1.add(dist2, gbc);
+        panel.add(dist2, gbc);
         gbc.gridy = 11;
-        panel1.add(dist3, gbc);
+        panel.add(dist3, gbc);
         gbc.gridy = 12;
-        panel1.add(dist4, gbc);
+        panel.add(dist4, gbc);
         
         gbc.gridy = 13;
-        panel1.add(newCity, gbc);
+        panel.add(newCity, gbc);
 	}
 
 	private void setTextFields() 
@@ -224,10 +219,4 @@ public class RequiredPanel extends JFrame
     	});
 	}
 	
-	
-
-	public static void main(String[] args)
-	{
-		new RequiredPanel();
-	}
 }
