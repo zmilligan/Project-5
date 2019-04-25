@@ -1,9 +1,11 @@
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class CreativePanel extends ProjectPanel
 {	
+	private JButton calculate;
 	private JLabel tLabel; 
 	private JLabel cLabel;
 	private JLabel fLabel;
@@ -48,7 +50,11 @@ public class CreativePanel extends ProjectPanel
 
 	private void setButtons() 
 	{
+		calculate = new JButton("Calulate ASCII");
 		
+		calculate.addActionListener((e) -> {
+    		
+    	});
 	}
 	
 	
