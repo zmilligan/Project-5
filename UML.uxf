@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text/>
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>96</x>
+      <y>8</y>
+      <w>288</w>
+      <h>640</h>
+    </coordinates>
+    <panel_attributes>::Project5Panels
+--
+-panel1: JPanel
+-panel2: JPanel
+#base = new HammingDist(): HammingDist
+-slider: JSlider
+-sLabel: JLabel
+-sText: JTextField
+-dist0: JTextField
+-dist1: JTextField
+-dist2: JTextField
+-dist3: JTextField
+-dist4: JTextField
+-show: JButton
+-stations: JTextArea
+-sView: JScrollPane
+-cLabel: JLabel
+-city: JComboBox
+-calc: JButton
+-dLabel0: JLabel
+-dLabel1: JLabel
+-dLabel2: JLabel
+-dLabel3: JLabel
+-dLabel4: JLabel
+-add: JButton
+-newCity: JTextField
+-calculate: JButton
+-title: JLabel
+-ciLabel: JLabel
+-fLabel: JLabel
+-aLabel: JLabel
+-lLabel: JLabel
+-ceiling: JTextField
+-floor: JTextField
+-average: JTextField
+-letter: JTextField
+--
++Project5Panels(): ctor
+-addComponentsPanel1(GridBagConstraints gbc): void
+-addComponentsPanel2(GridBagConstraints gbc): void
+-setTextFields(): void
+-setLabels(): void
+-setSlider(): void
+-setButtons(): void
+-setDropDownBox(): void
++getPanel1(): JPanel
++getPanel2(): JPanel
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>392</x>
+      <y>8</y>
+      <w>328</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>::HammingDist
+--
+-cities: ArrayList&lt;String&gt;
+-filename = "Mesonet.txt": String
+-NUM_CITIES = 120: int
+--
++HammingDist(): ctor
+-readFile(): void
++compareHammingDist(String city): int[]
++findHammingDist(String original, String compare): int
++findGivenHammingDist(String orig, int dist): ArrayList&lt;String&gt;
++getCities(): ArrayList&lt;String&gt;
++addCity(String id): void
++calAverage(String id): int[]
++letterAverage(String id): char
+-getAverage(String id): double
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>8</y>
+      <w>256</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>::HammingGUI
+--
+-pPanels = new Project5Panels(): Project5Panels
+--
++HammingGUI(): ctor
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
