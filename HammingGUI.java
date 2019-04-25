@@ -4,8 +4,7 @@ import javax.swing.JFrame;
 
 public class HammingGUI extends JFrame
 {
-	private RequiredPanel rPanel = new RequiredPanel();
-	private CreativePanel cPanel = new CreativePanel();
+	private Project5Panels pPanels = new Project5Panels();
 	
 	public HammingGUI()
 	{
@@ -13,8 +12,8 @@ public class HammingGUI extends JFrame
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridLayout gl = new GridLayout(0, 2);
 		this.setLayout(gl);
-		this.add(rPanel.getPanel());
-		this.add(cPanel.getPanel());
+		this.add(pPanels.getPanel1());
+		this.add(pPanels.getPanel2());
 		this.setVisible(true);
 	}
 	
