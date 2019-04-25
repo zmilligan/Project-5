@@ -45,6 +45,7 @@ public class HammingDist
     	}
 	}
 	
+	
 	/**
 	 * This method reads from the file and saves the abbreviated city names into the cities ArrayList
 	 * 
